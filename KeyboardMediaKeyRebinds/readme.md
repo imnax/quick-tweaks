@@ -19,9 +19,10 @@ To swap this functionality, I made `VolDown.vbs` which sends keycode `0xAE` (see
 > Type: `REG_SZ`\
 > Data: `C:\Scripts\KeyboardMediaKeyRebinds\VolDown.vbs`
 
+Now when I press that physical key, `VolDown.vbs` runs and lowers the volume in Windows by 2 stages (100 -> 98).
+
 I also added a string value called `Key` as a descriptor for easier identification later (`3 - Vol Down`, as in `3rd key along - icon is Vol Down`).
 
-Now when I press that physical key, `VolDown.vbs` runs and lowers the volume in Windows by 2 stages (100 -> 98).
 
 ## My registry changes
 ```
