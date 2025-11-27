@@ -19,7 +19,31 @@ To swap this functionality, I made `VolDown.vbs` which sends keycode `0xAE` (see
 > Type: `REG_SZ`\
 > Data: `C:\Scripts\KeyboardMediaKeyRebinds\VolDown.vbs`
 
-Now when I press that physical key, `VolDown.vbs` runs and lowers the volume in Windows by 2 stages (100 -> 98)
+I also added a string value called `Key` as a descriptor for easier identification later (`3 - Vol Down`, as in `3rd key along - icon is Vol Down`).
+
+Now when I press that physical key, `VolDown.vbs` runs and lowers the volume in Windows by 2 stages (100 -> 98).
+
+## My registry changes
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey\15]
+"ShellExecute"="C:\\Scripts\\KeyboardMediaKeyRebinds\\VolDown.vbs"
+"Key"="3 - Vol Down"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey\17]
+"ShellExecute"="C:\\Scripts\\KeyboardMediaKeyRebinds\\VolMute.vbs"
+"Key"="2 - Vol Mute"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey\18]
+"Key"="1 - Calc"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AppKey\7]
+"ShellExecute"="C:\\Scripts\\KeyboardMediaKeyRebinds\\VolUp.vbs"
+"Key"="4 - Vol Up"
+```
 
 # References
 - Inspired by: https://www.adamnierzad.com/2019/remapping-media-keys/
